@@ -17,11 +17,14 @@ def sentiment():
 
 @app.route("/find_sentiment", methods=["POST"])
 def find_sentiment():
-    text = request.form.get("text")
+    if 'text' in request.get_json():
+        text = request.get_json()["text"]
+        output = sentiment_analysis.sentiment_analysis(text)
 
-    output = sentiment_analysis.sentiment_analysis(text)
-
-    return json.dumps(output.tolist())
+        return json.dumps(output.tolist())
+    else:
+        print(request.get_json())
+        return json.dumps({"error":"text input empty"})
 
 
 

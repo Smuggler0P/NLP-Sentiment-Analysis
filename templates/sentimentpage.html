@@ -1,16 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title></title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/style.css" rel="stylesheet">
-	</head>
-	<body>
-	<form action="find_sentiment" method="POST">
-		<label for="text">Enter the text</label>
-		<input type="text" name="text">	
-		<input type="submit" name="submit">
-	</form>
-	</body>
-</html>
+{% extends "index.html" %}
+
+{% block content %}
+    <script>
+	let submit_text = () => {
+		fetch("/find_sentiment", {
+			method: "POST",
+			body: JSON.stringify({
+				text:document.getElementById("textInput").innerText
+			}),
+			headers: {
+				"Content-type": "application/json; charset=UTF-8"
+			}
+		})
+		.then((response) => response.json())
+			.then((json) => {
+				document.getElementById("sentimentResult").innerText = json; 
+			});
+		
+		let results = document.getElementById("resultContainer");
+		results.classList = "";
+	}
+    </script>
+
+    <section class="sentiment-analysis">
+        <h1>Text Sentiment Analysis</h1>
+        <p>Welcome to Sentiment Analyzer, your go-to tool for analyzing text sentiments. Simply enter your text below, and we'll provide you with the sentiment analysis results.</p>
+        
+        <div class="input-container">
+            <textarea id="textInput" placeholder="Enter your text here"></textarea>
+            <button id="analyzeButton" onClick="submit_text()">Analyze</button>
+        </div>
+
+        <div id="resultContainer" class="hidden">
+            <h2>Analysis Result:</h2>
+            <p id="sentimentResult"></p>
+        </div>
+    </section>
+
+{% endblock %}

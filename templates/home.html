@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/styles.css">
-    <title>Sentiment Analysis App</title>
-</head>
-<body>
+{% extends "index.html" %}
+
+{% block content %}   
     <header>
-        <nav>
-            <div class="logo">Sentiment Analyzer</div>
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Sign In/Sign Up</a></li>
-            </ul>
-        </nav>
         <div class="hero">
             <h1>Understand Sentiments Instantly</h1>
             <p>Analyze text and discover sentiments with our powerful tool.</p>
@@ -27,7 +10,7 @@
 	    </a>
         </div>
     </header>
-    
+
     <section class="features">
         <h2>Key Features</h2>
         <div class="feature">
@@ -48,8 +31,14 @@
     </section>
 
     <section class="how-it-works">
-        <h2>How It Works</h2>
-        <!-- Include step-by-step explanation with visuals here -->
+	<h2>How It Works</h2>
+        <p>Our sentiment analysis tool uses advanced natural language processing techniques to analyze the sentiment of your text. Here's how it works:</p>
+        <ol>
+            <li>You enter your text in the input box.</li>
+            <li>Click the "Analyze" button to initiate the analysis.</li>
+            <li>Our algorithm processes the text and determines its sentiment.</li>
+            <li>The result is displayed, indicating whether the text is positive, negative, or neutral.</li>
+        </ol>    
     </section>
 
     <!--
@@ -68,15 +57,4 @@
     </section>
 
     -->
-    <footer>
-        <div class="footer-menu">
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-        </div>
-        <div class="copyright">&copy; 2023 Sentiment Analyzer DarkMatter-999</div>
-    </footer>
-</body>
-</html>
 
