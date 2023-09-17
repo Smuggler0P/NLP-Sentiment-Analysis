@@ -1,0 +1,7 @@
+*.zip
+*.json
+datasets/
+logs/
+models/
+venv/
+.ipynb_checkpoints
