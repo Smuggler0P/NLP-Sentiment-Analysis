@@ -170,10 +170,37 @@ h1 {
 }
 
 p {
-    font-size: 18px;
+    text-align: center;
+    font-size: 20px;
     margin-bottom: 20px;
     padding: 10px 200px;
 }
+
+.stars {
+    margin: 0px auto;
+    position: relative;
+    padding: 1rem;
+    width: 250px;
+    white-space: nowrap;
+}
+
+.stars svg {
+    width: 50px;
+    fill: gold;
+}
+
+.cover {
+  background: white;
+  height: 100%;
+  overflow: hidden;
+  mix-blend-mode: color;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+
 
 .input-container {
     display: flex;
